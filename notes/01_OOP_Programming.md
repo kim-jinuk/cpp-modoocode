@@ -1,4 +1,4 @@
-# 01. Basic Syntax
+# 01. OOP Programming
 
 * `iostream` 헤더와 `std::cout`  
 * `int main()` 함수 형태  
