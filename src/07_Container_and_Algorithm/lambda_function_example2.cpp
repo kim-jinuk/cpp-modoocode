@@ -11,6 +11,33 @@ void print(Iter begin, Iter end) {
     std::cout << std::endl;
 }
 
+// 클래스의 멤버 함수 내에서 람다를 사용할 때 멤버 변수들을 참조하려면, 아래처럼 this를 사용한다.
+class SomeClass {
+    std::vector<int> vec;
+    int num_erased;
+
+public:
+    SomeClass() {
+        vec.push_back(5);
+        vec.push_back(3);
+        vec.push_back(1);
+        vec.push_back(2);
+        vec.push_back(3);
+        vec.push_back(4);
+
+        num_erased = 0;
+        vec.erase(std::remove_if(vec.begin(), vec.end(), [this](int i) {
+            if (this->num_erased >= 2) return false;
+            if (i % 2 == 1) {
+                this->num_erased++;
+                return true;
+            }
+            return false;
+        }),
+        vec.end());
+    }
+};
+
 int main() {
     std::vector<int> vec;
     vec.push_back(5);
@@ -34,6 +61,6 @@ int main() {
         return false;
     }), vec.end());
     print(vec.begin(), vec.end());
-    
+
     return 0;
 }

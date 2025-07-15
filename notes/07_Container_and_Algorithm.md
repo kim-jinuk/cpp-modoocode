@@ -49,7 +49,8 @@ std::unordered_map<std::string,int> um;
 |----------|----------|---------------|
 | Non-modifying | `for_each`, `count` | Input |
 | Modifying | `copy`, `transform` | Forward |
-| Sorting | `sort`, `stable_sort` | Random-access |
+| Sorting | `sort`, `stable_sort`, `partial_sort` | Random-access |
+| Remove | `remove`, `remove_if` | Forward |
 | Numeric | `accumulate` | Input |
 
 ```cpp
