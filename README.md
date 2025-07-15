@@ -12,8 +12,8 @@
 ├── notes/           # 챕터별 개념 정리
 ├── src/             # 실습 코드
 ├── test/            # 단위 테스트
-├── .github/workflows# GitHub Actions
-└── CMakeLists.txt   # 최상위 빌드 스크립트
+├── .github/workflows  # GitHub Actions
+└── CMakeLists.txt     # 최상위 빌드 스크립트
 ```
 
 ## 빠른 시작
