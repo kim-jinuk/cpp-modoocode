@@ -1,3 +1,5 @@
+// Raw string 문법은 아래와 같다.
+// R"/* delimiter */( /* 문자열*/ )/* delimiter */" 
 #include <iostream>
 #include <string>
 
