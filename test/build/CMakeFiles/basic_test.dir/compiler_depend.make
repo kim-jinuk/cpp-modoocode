@@ -181,27 +181,11 @@ CMakeFiles/basic_test.dir/basic_test.o: ../basic_test.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  /usr/include/c++/11/cstring \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/c++/11/vector \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_vector.h \
-  /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h
 
 
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/c++/11/bits/stl_uninitialized.h:
-
-/usr/include/c++/11/vector:
-
-/usr/include/string.h:
-
-/usr/include/c++/11/cstring:
+/usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/bits/istream.tcc:
 
@@ -227,8 +211,6 @@ CMakeFiles/basic_test.dir/basic_test.o: ../basic_test.cpp \
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
-/usr/include/c++/11/bits/stl_vector.h:
-
 /usr/include/c++/11/system_error:
 
 /usr/include/c++/11/bits/locale_classes.tcc:
@@ -246,6 +228,8 @@ CMakeFiles/basic_test.dir/basic_test.o: ../basic_test.cpp \
 /usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/11/utility:
 
 /usr/include/errno.h:
 
@@ -536,8 +520,6 @@ CMakeFiles/basic_test.dir/basic_test.o: ../basic_test.cpp \
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/strings.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
