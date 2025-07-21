@@ -12,10 +12,13 @@
     `vector::reserve`, `list::splice` 처럼 STL 내부의 최적화 활용만 해도 손코딩 대비 퍼포먼스가 좋다
   - **C++20 `<ranges>` 파이프라인**  
     C++20 `views::filter | views::transform` 로 파이프라인을 이어 붙여도 비용은 인라인 최적화 수준 -> 깔끔한 선언형 코드 쓰고도 ‘0‑cost abstraction’ 유지
+
 - **컨테이너 유형별 특징**
   - Sequence, Associative, Unordered, Container Adapter
+
 - **대표 알고리즘 & Iterator 요구 조건**
   - 정렬`(sort, stable_sort, partial_sort)`·제거`(remove, remove_if)`·누적`(accumulate)` 계열 + input/forward/bidirectional/random‑access iterator
+
 - **Iterator 무효화와 안전한 사용**
 - **Best Practice**
 
@@ -109,8 +112,3 @@ remove + erase             O(n)
 * cppreference: **[Containers](https://en.cppreference.com/w/cpp/container)**
 * *Effective STL* – Scott Meyers
 * *Ranges — the STL to the Next Level* (Conference slides)
-
----
-
-```
-```
