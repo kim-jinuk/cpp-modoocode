@@ -2,14 +2,7 @@
 #include <vector>
 
 template <typename T>
-void wrapper(T& u) {
-    std::cout << "T&로 추론됨" << std::endl;
-    g(u);
-}
-
-template <typename T>
-void wrapper(const T& u) {
-    std::cout << "const T&로 추론됨" << std::endl;
+void wrapper(T u) {
     g(u);
 }
 
