@@ -1,26 +1,6 @@
 # 07. Container and Algorithm
 
 ## 1. 목차
-- STL 컨테이너·알고리즘이 주는 가장 핵심적인 장점
-    - 컨테이너와 알고리즘을 분리함으로써 데이터 구조와 로직을 단숨에 갈아 끼울 수 있게 해준다 -> 한 줄로 실험해보고 성능-메모리 트레이드오프 즉시 확인 가능
-    - 템플릿으로 구현되어 컴파일 타임에 타입이 확정된다 -> 캐스팅 지옥 없이도 C 코드만큼 빠른 바이너리
-    - "이터레이터 + `[first, last)`" 규악으로 커스텀 컨테이너도 STL 알고리즘에 그냥 꽂힌다 -> 코드 의존성 최소화 = 유지보수 비용 절감
-    - 벡터의 reserve, list.splice() 처럼 STL 내부의 최적화 활용만 해도 손코딩 대비 퍼포먼스가 좋다
-    - C++20 ranges::filter | views::transform 로 파이프라인을 이어 붙여도 비용은 인라인 최적화 수준 -> 깔끔한 선언형 코드 쓰고도 ‘0‑cost abstraction’ 유지
-- 컨테이너 유형별 특징
-    - Sequence, Associative, Unordered, Container Adapter
-- 대표 알고리즘 & iterator 요구 조건
-    - sort, stable_sort, partial_sort, remove, remove_if, accumulate 등 알고리즘
-    - input, output, forward, bidirectional, random-access 등 Iterator 요구 조건
-- iterator invalidation과 안전한 사용
-- Best Practice
-앗, 바로 파일을 만들어 첨부하려다 포맷 오류로 실패했네요. 😅
-대신 아래에 **그대로 복붙해 쓸 수 있는 `.md` 원본**을 통째로 넣어 드립니다. 로컬에서 `07_container_algorithm.md` 같은 이름으로 저장하면 바로 사용 가능합니다!
-
-````markdown
-# 07. Container and Algorithm
-
-## 1. 목차
 - **STL 컨테이너·알고리즘이 주는 핵심 장점**
   - **자료구조 ↔ 로직 분리**  
     컨테이너와 알고리즘을 분리함으로써 데이터 구조와 로직을 단숨에 갈아 끼울 수 있게 해준다 -> 한 줄로 실험해보고 성능-메모리 트레이드오프 즉시 확인 가능
