@@ -1,5 +1,6 @@
 #include <iostream>
 
+// forwarding reference
 template <typename T>
 void wrapper(T&& u) {
     g(std::forward<T>(u));
@@ -21,9 +22,9 @@ int main() {
     g(A());
 
     std::cout << "Wrapper ------------" << std::endl;
-    wrapper(a);
-    wrapper(ca);
-    wrapper(A());
+    wrapper(a);     // T& == A& -> (A&)& == A& -> T = A&
+    wrapper(ca);    // T& == const A& -> (const A&)& == const A& -> T = const A&
+    wrapper(A());   // T&& == A&& -> T = A
 
     return 0;
 }
