@@ -1,11 +1,11 @@
 # 08. C++ Exception
 
 ## 1. 목차
-- C++ 예외 처리 기본 구조
-- try / catch / throw 사용법
-- 예외 안전성(Exception Safety) 3단계
+- C++ 예외 처리 **기본 구조**
+- **try** / **catch** / **throw** 사용법
+- **예외 안전성**(Exception Safety) 3단계
 - 표준 예외 클래스 계층
-- noexcept와 throw specifier
+- **noexcept**와 throw specifier
 
 ---
 
@@ -14,9 +14,9 @@
 |------|------|------|
 | **try / catch** | 예외 발생 블록과 처리 블록 | |
 | **throw** | 예외 객체 던짐 | |
-| **Exception Safety** | 예외 발생 시 프로그램 일관성 보장 | Basic / Strong / Nothrow |
-| **std::exception** | 모든 표준 예외의 베이스 클래스 | |
-| **noexcept** | 예외가 던져지지 않음을 보장 | 함수 선언 시 사용 |
+| **Exception Safety** | 예외 발생 시 프로그램 일관성 보장 | **Basic** / **Strong** / **Nothrow** |
+| **std::exception** | 모든 표준 예외의 **베이스 클래스** | |
+| **noexcept** | 예외가 던져지지 않음을 보장 | **함수 선언 시 사용** |
 
 ---
 
@@ -32,21 +32,21 @@ try {
 ```
 
 ### 3-2 표준 예외 클래스
-- std::exception: 최상위
-- std::runtime_error, std::logic_error, std::out_of_range 등
-- .what() 메서드로 메시지 확인
+- **std::exception**: 최상위
+- **std::runtime_error**, **std::logic_error**, **std::out_of_range** 등
+- **.what()** 메서드로 메시지 확인
 
 ### 3-3 Exception Safety 3단계
-- Basic: 리소스 누수 없고 불변식 유지
-- Strong: 실패 시 상태 롤백
-- Nothrow: 절대 예외 안 던짐 (소멸자 등)
+- **Basic**: 리소스 누수 없고 불변식 유지
+- **Strong**: 실패 시 **상태 롤백**
+- **Nothrow**: 절대 예외 안 던짐 (**소멸자** 등)
 
 ### 3-4 noexcept
 ```cpp
 void func() noexcept { /* 절대 throw 안 함 */ }
 ```
-- STL 컨테이너 이동 연산자 최적화에 중요
-- noexcept 위반 시 프로그램 강제 종료
+- STL 컨테이너 **이동 연산자 최적화**에 중요
+- **noexcept 위반 시 프로그램 강제 종료**
 
 ---
 
@@ -69,8 +69,8 @@ try 블록 자체는 오버헤드 적음
 ---
 
 ## 6. 흔한 실수 & Best Practice
-- 소멸자에서 예외 던지지 않기
-- 불필요한 catch(...) 남발 금지
+- **소멸자**에서 예외 던지지 않기
+- **불필요한 catch(...)** 남발 금지
 - 강제 종료 방지 위해 std::terminate 동작 파악
 - noexcept 선언은 진짜 안전할 때만
 
