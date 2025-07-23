@@ -1,5 +1,4 @@
 #include <iostream>
-#include <memory>
 
 class A {
     int* data;
@@ -10,19 +9,19 @@ public:
         std::cout << "자원을 획득함!" << std::endl;
     }
 
-    void some() { std::cout << "일반 포인터와 동일하게 사용 가능" << std::endl; }
-
     ~A() {
-        std::cout << "자원을 해제함!" << std::endl;
+        std::cout << "소멸자 호출!" << std::endl;
         delete[] data;
     }
 };
 
 void do_something() {
-    std::unique_ptr<A> pa(new A());
-    pa->some();
+    A* pa = new A();
 }
 
 int main() {
     do_something();
+
+    // 할당된 객체가 소멸되지 않음!
+    // 즉, 400 바이트 (4 * 100) 만큼의 메모리 누수 발생
 }

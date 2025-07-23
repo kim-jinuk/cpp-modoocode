@@ -1,6 +1,6 @@
 #include <iostream>
 
-// forwarding reference
+// forwarding reference (== universal reference)
 template <typename T>
 void wrapper(T&& u) {
     g(std::forward<T>(u));
