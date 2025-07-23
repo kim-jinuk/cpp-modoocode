@@ -20,7 +20,16 @@ public:
 
 void do_something() {
     std::unique_ptr<A> pa(new A());
+    std::cout << "pa : ";
     pa->some();
+
+    // unique_ptr는 복사생성자가 명시적으로 삭제되어 있음.
+    // std::unique_ptr<A> pb = pa;     // Error : Attempting to reference a deleted function
+
+    // 그러나 unique_ptr가 가지는 소유권 이전은 가능.
+    std::unique_ptr<A> pb = std::move(pa);
+    std::cout << "pb : ";
+    pb->some();
 }
 
 int main() {
