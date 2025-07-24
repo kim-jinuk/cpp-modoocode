@@ -14,8 +14,6 @@ namespace example {
     template <typename T, typename Deleter = default_delete<T>>
     class unique_ptr {
         static_assert(!std::is_reference_v<Deleter>, "Deleter must be a value type");
-        pointer ptr_;
-        deleter_type deleter_;
 
     public:
         // 타입 alias
@@ -79,6 +77,10 @@ namespace example {
         // deleter 접근(필요 시)
         deleter_type&       get_deleter()       noexcept { return deleter_; }
         const deleter_type& get_deleter() const noexcept { return deleter_; }
+
+    private:
+        pointer ptr_;
+        deleter_type deleter_;
     };
     
     // ----------- 헬퍼 함수(swap) -----------
