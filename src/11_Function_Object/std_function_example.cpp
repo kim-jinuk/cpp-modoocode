@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <functional>
+#include <string>
 
 int some_func1(const std::string& s) {
     std::cout << "Func1 호출! " << s << std::endl;
@@ -15,9 +15,9 @@ struct S {
 };
 
 int main() {
-    std::function<int(const std::string&)> f1 = some_func1;
-    std::function<void(char)> f2 = S();
-    std::function<void()> f3 = []() { std::cout << "Func3 호출!" << std::endl; };
+    std::function<int(const std::string&)>  f1 = some_func1;
+    std::function<void(char)>               f2 = S();
+    std::function<void()>                   f3 = []() { std::cout << "Func3 호출!" << std::endl; };
 
     f1("hello");
     f2('c');
