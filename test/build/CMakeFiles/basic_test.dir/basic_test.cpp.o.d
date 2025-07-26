@@ -1,4 +1,4 @@
-CMakeFiles/basic_test.dir/basic_test.o: \
+CMakeFiles/basic_test.dir/basic_test.cpp.o: \
  /home/jinuk/Workspace/cpp-modoocode-study/test/basic_test.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \

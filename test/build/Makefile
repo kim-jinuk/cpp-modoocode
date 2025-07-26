@@ -129,20 +129,29 @@ basic_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/build
 .PHONY : basic_test/fast
 
-# target to build an object file
-basic_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.o
+basic_test.o: basic_test.cpp.o
 .PHONY : basic_test.o
 
-# target to preprocess a source file
-basic_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.i
+# target to build an object file
+basic_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.cpp.o
+.PHONY : basic_test.cpp.o
+
+basic_test.i: basic_test.cpp.i
 .PHONY : basic_test.i
 
-# target to generate assembly for a file
-basic_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.s
+# target to preprocess a source file
+basic_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.cpp.i
+.PHONY : basic_test.cpp.i
+
+basic_test.s: basic_test.cpp.s
 .PHONY : basic_test.s
+
+# target to generate assembly for a file
+basic_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_test.dir/build.make CMakeFiles/basic_test.dir/basic_test.cpp.s
+.PHONY : basic_test.cpp.s
 
 # Help Target
 help:

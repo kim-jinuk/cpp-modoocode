@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/basic_test.dir/basic_test.o -o basic_test 
+/usr/bin/c++ CMakeFiles/basic_test.dir/basic_test.cpp.o -o basic_test 

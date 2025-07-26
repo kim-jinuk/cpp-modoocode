@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jinuk/Workspace/cpp-modoocode-study/test/basic_test.cpp" "CMakeFiles/basic_test.dir/basic_test.o" "gcc" "CMakeFiles/basic_test.dir/basic_test.o.d"
+  "/home/jinuk/Workspace/cpp-modoocode-study/test/basic_test.cpp" "CMakeFiles/basic_test.dir/basic_test.cpp.o" "gcc" "CMakeFiles/basic_test.dir/basic_test.cpp.o.d"
   )
 
 # Targets to which this target links.
