@@ -24,7 +24,7 @@ int main() {
     }
 
     vector<int> partial_sum(4);
-    vector<thread> workers(4);
+    vector<thread> workers;
 
     for (int i = 0; i < 4; ++i) {
         workers.push_back(thread(worker, data.begin() + i * 2500, data.begin() + (i + 1) * 2500, &partial_sum[i]));
