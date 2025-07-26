@@ -5,8 +5,11 @@
 
 void worker(int& result, std::mutex& m) {
     for (int i = 0; i < 10000; ++i) {
-        std::lock_guard<std::mutex> lock(m);    // lock 생성 시에 m.lock() 수행된다
+        std::lock_guard<std::mutex> lock(m);    // lock 생성 시에 m.lock() 을 실행한다고 보면 된다.
         result += 1;
+        
+        // scope 를 빠져나가면 lock이 소멸되면서
+        // m 을 알아서 unlock 한다.
     }
 }
 
