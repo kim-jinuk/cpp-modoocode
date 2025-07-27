@@ -199,21 +199,8 @@ CMakeFiles/basic_test.dir/basic_test.cpp.o: ../basic_test.cpp \
   /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/bits/std_mutex.h \
-  /usr/include/c++/11/bits/unique_lock.h \
-  /usr/include/c++/11/vector \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_vector.h \
-  /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc
+  /usr/include/c++/11/bits/unique_lock.h
 
-
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/c++/11/bits/stl_uninitialized.h:
-
-/usr/include/c++/11/vector:
 
 /usr/include/c++/11/bits/unique_lock.h:
 
@@ -256,8 +243,6 @@ CMakeFiles/basic_test.dir/basic_test.cpp.o: ../basic_test.cpp \
 /usr/include/c++/11/stdexcept:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
-
-/usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/system_error:
 
