@@ -24,11 +24,11 @@ int main() {
     int counter = 0;
     std::mutex m1, m2;
 
-    std::thread t1(worker1, std::ref(m1), std::ref(m2));
-    std::thread t2(worker2, std::ref(m1), std::ref(m2));
+    //std::thread t1(worker1, std::ref(m1), std::ref(m2));
+    //std::thread t2(worker2, std::ref(m1), std::ref(m2));
 
-    t1.join();
-    t2.join();
+    //t1.join();
+    //t2.join();
 
     std::cout << "끝!" << std::endl;
 

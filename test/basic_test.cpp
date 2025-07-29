@@ -1,31 +1,48 @@
 #include <iostream>
-#include <vector>
-#include <atomic>
 #include <thread>
+#include <mutex>
 
-using std::memory_order_relaxed;
+void worker1(std::mutex& m1, std::mutex& m2) {
+    for (int i = 0; i < 10; ++i) {
+        m1.lock();
+        m2.lock();
 
-void worker(std::atomic<int>* counter) {
-    for (int i = 0; i < 10000; ++i) {
-        // 다른 연산들 수행
-        
-        counter->fetch_add(1, memory_order_relaxed);
+        std::cout << "Worker1 Hi" << i << std::endl;
+
+        m2.unlock();
+        m1.unlock();
+    }
+}
+
+void worker2(std::mutex& m1, std::mutex& m2) {
+    for (int i = 0; i < 10; ++i) {
+        while (true) {
+            m2.lock();
+            
+            if (!m1.try_lock()) {
+                m2.unlock();
+                continue;
+            }
+
+            std::cout << "Worker2 Hi" << i << std::endl;
+            m1.unlock();
+            m2.unlock();
+
+            break;
+        }
     }
 }
 
 int main() {
-    std::vector<std::thread> workers;
-    std::atomic<int> counter(0);
+    std::mutex m1, m2;
 
-    for (int i = 0; i < 4; ++i) {
-        workers.push_back(std::thread(worker, &counter));
-    }
+    std::thread t1(worker1, std::ref(m1), std::ref(m2));
+    std::thread t2(worker2, std::ref(m1), std::ref(m2));
 
-    for (int i = 0; i < 4; ++i) {
-        workers[i].join();
-    }
+    t1.join();
+    t2.join();
 
-    std::cout << "Counter : " << counter << std::endl;
+    std::cout << "끝!" << std::endl;
 
     return 0;
 }
