@@ -1,13 +1,13 @@
-#include <iostream>
 #include <condition_variable>
-#include <mutex>
-#include <string>
 #include <thread>
+#include <mutex>
+#include <iostream>
+#include <string>
 
-std::mutex m;
 std::condition_variable cv;
-std::string info;
+std::mutex m;
 bool done = false;
+std::string info;
 
 void worker() {
     {
@@ -20,8 +20,8 @@ void worker() {
 
 int main() {
     std::thread t(worker);
-
     std::unique_lock<std::mutex> lk(m);
+
     cv.wait(lk, [] { return done; });
     lk.unlock();
 
