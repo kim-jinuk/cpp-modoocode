@@ -10,7 +10,6 @@ void worker(std::promise<void>* p) {
 }
 
 int main() {
-    // void 의 경우 어떠한 객체도 전달하지 않지만, future 가 set 이 (되었나 or 안 되었나)의 유무로 마치 플래그의 역할을 수행할 수 있다.
     std::promise<void> p;
     std::future<void> data = p.get_future();
 
