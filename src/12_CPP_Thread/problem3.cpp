@@ -23,7 +23,7 @@ InputIterator fast_find(InputIterator first, InputIterator last, const T& val) {
     auto lower_it = lower_half_future.get();
 
     if (upper_it != last) return upper_it;
-    if (lower_it != mig) return lower_it;
+    if (lower_it != mid) return lower_it;
 
     return last;    // 양쪽 다 못 찾은 경우
 }
