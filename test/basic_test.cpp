@@ -30,7 +30,7 @@ public:
     void EnqueueJob(std::function<void()> job);
 };
 
-ThreadPool::ThreadPool(size_t num_threads) : num_threads_(num_threads_), stop_all(false) {
+ThreadPool::ThreadPool(size_t num_threads) : num_threads_(num_threads), stop_all(false) {
     worker_threads_.reserve(num_threads);
     for (size_t i = 0; i < num_threads; ++i) {
         worker_threads_.emplace_back([this](){ return this->WorkerThread(); });
