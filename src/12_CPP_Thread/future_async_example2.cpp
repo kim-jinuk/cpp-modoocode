@@ -8,8 +8,8 @@ int do_work(int x) {
 }
 
 void do_work_parallel() {
-    std::future<void> f1 = std::async([]() { do_work(3); });
-    std::future<void> f2 = std::async([]() { do_work(3); });
+    auto f1 = std::async([]() { do_work(3); });
+    auto f2 = std::async([]() { do_work(3); });
     do_work(3);
 
     f1.get();
