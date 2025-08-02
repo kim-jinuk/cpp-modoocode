@@ -7,7 +7,7 @@ public:
 
 int main() {
     A a(3.5);   // Narrow-conversion 가능!
-    A b{3.5};   // Narrow-conversion 불가능!
+    // A b{3.5};   // Narrow-conversion 불가능!
 
     return 0;
 }
