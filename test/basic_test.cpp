@@ -1,20 +1,45 @@
 #include <iostream>
+#include <vector>
+#include <thread>
+#include <cstdio>
 
-class A {
-public:
-    A() { std::cout << "A의 생성자 호출!" << std::endl; }
-};
+using std::vector;
+using std::thread;
 
-class B { 
-public:
-    B(A a) { std::cout << "B의 생성자 호출!" << std::endl; }
-};
+void worker(vector<int>::iterator start, vector<int>::iterator end, int* result) { 
+    int sum = 0;
+    for (auto itr = start; itr < end; ++itr) {
+        sum += *itr;
+    }
+
+    *result = sum;
+    thread::id this_id = std::this_thread::get_id();
+    printf("쓰레드 %x에서 %d부터 %d까지 계산한 결과 : %d \n", this_id, *start, *(end - 1), sum);
+}
 
 int main() {
-    A a();      // 뭐가 출력될까?
-    B b(A());   // 뭐가 출력될까?
+    vector<int> data(10000);
+    for (int i = 0; i < 10000; ++i) {
+        data[i] = i;
+    }
 
-    A c{};      
+    vector<int> partial_sum(4);
+    vector<thread> workers;
+
+    for (int i = 0; i < 4; ++i) {
+        workers.push_back(thread(worker, data.begin() + i * 2500, data.begin() + (i + 1) * 2500, &partial_sum[i]));
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        workers[i].join();
+    }
+
+    int total = 0;
+    for (int i = 0; i < 4; ++i) {
+        total += partial_sum[i];
+    }
+
+    std::cout << "전체 합 : " << total << std::endl;
 
     return 0;
 }

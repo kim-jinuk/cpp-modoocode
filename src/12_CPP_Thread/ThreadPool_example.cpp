@@ -6,6 +6,7 @@
 #include <queue>
 #include <thread>
 #include <vector>
+#include <stdexcept>
 
 namespace ThreadPool {
 class ThreadPool {
