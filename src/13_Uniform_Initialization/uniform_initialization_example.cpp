@@ -2,11 +2,12 @@
 
 class A {
 public:
-    A() { std::cout << "A의 생성자 호출!" << std::endl; }
+    A(int x) { std::cout << "A의 생성자 호출!" << std::endl; }
 };
 
 int main() {
-    A a{};      // 균일한 초기화 (Uniform Initialization)
+    A a(3.5);   // 암시적 변환 Narrow-conversion 가능! 
+    // A b{3.5};   // 암시적 변환 Narrow-conversion 불가능!
 
     return 0;
 }

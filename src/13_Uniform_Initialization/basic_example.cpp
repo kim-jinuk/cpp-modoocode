@@ -14,5 +14,7 @@ int main() {
     A a();      // 뭐가 출력될까?
     B b(A());   // 뭐가 출력될까?
 
+    A c{};      // 균일한 초기화 (Uniform Initialization) 
+
     return 0;
 }
