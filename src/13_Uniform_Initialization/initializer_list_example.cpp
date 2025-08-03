@@ -9,9 +9,9 @@ public:
 };
 
 int main() {
-    A a(1, 3.5);
-    A b{1, 3.5};
-    A c{"abc", "def"};
+    A a(1, 3.5);        // 일반
+    A b{1, 3.5};        // 일반
+    A c{"abc", "def"};  // 초기화자
 
     return 0;
 }
