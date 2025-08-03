@@ -1,28 +1,28 @@
-#include <chrono>
-#include <condition_variable>
 #include <cstdio>
+#include <vector>
+#include <condition_variable>
+#include <mutex>
+#include <thread>
 #include <functional>
 #include <future>
-#include <mutex>
+#include <chrono>
 #include <queue>
-#include <thread>
-#include <vector>
 
 namespace ThreadPool {
 class ThreadPool {
 private:
     size_t num_threads_;
     std::vector<std::thread> worker_threads_;
-    std::queue<std::function<void()>> jobs_;
     bool stop_all;
     void WorkerThread();
+    std::queue<std::function<void()>> jobs_;
     std::condition_variable cv_job_q_;
     std::mutex m_job_q_;
 
 public:
     ThreadPool(size_t num_threads);
     ~ThreadPool();
-    
+
     template <class F, class... Args>
     std::future<typename std::invoke_result_t<F, Args...>> EnqueueJob(F&& f, Args&&... args);
 };
@@ -39,9 +39,8 @@ ThreadPool::~ThreadPool() {
         std::lock_guard<std::mutex> lock(m_job_q_);
         stop_all = true;
     }
-    
     cv_job_q_.notify_all();
-    
+
     for (auto& t : worker_threads_) {
         t.join();
     }
@@ -54,7 +53,7 @@ void ThreadPool::WorkerThread() {
 
         if (stop_all && jobs_.empty()) return;
 
-        std::function<void()> job = std::move(jobs_.front());
+        auto job = std::move(jobs_.front());
         jobs_.pop();
         lock.unlock();
 
@@ -63,13 +62,13 @@ void ThreadPool::WorkerThread() {
 }
 
 template <class F, class... Args>
-std::future<typename std::invoke_result_t<F, Args...>> ThreadPool::EnqueueJob(F&& f, Args&&... args) {
-    if (stop_all) throw std::runtime_error("ThreadPool 사용 중지됨");
-    using return_type = typename std::invoke_result_t<F, Args...>;
+std::future<std::invoke_result_t<F, Args...>> ThreadPool::EnqueueJob(F&& f, Args&&... args) {
+    using return_type = std::invoke_result_t<F, Args...>;
     auto job = std::make_shared<std::packaged_task<return_type()>>(std::bind(std::forward<F>(f), std::forward<Args>(args)...));
     std::future<return_type> job_result_future = job->get_future();
-
+    
     {
+        if (stop_all) throw std::runtime_error("ThreadPool 사용 중지됨");
         std::lock_guard<std::mutex> lock(m_job_q_);
         jobs_.push([job](){ (*job)(); });
     }
@@ -77,7 +76,7 @@ std::future<typename std::invoke_result_t<F, Args...>> ThreadPool::EnqueueJob(F&
 
     return job_result_future;
 }
-}   // namespace ThreadPool
+}
 
 int work(int t, int id) {
     printf("%d start \n", id);
@@ -90,7 +89,7 @@ int work(int t, int id) {
 int main() {
     ThreadPool::ThreadPool pool(3);
     std::vector<std::future<int>> futures;
-    
+
     for (int i = 0; i < 10; ++i) {
         futures.emplace_back(pool.EnqueueJob(work, i % 3 + 1, i));
     }
@@ -98,6 +97,6 @@ int main() {
     for (auto& f : futures) {
         printf("result : %d \n", f.get());
     }
-    
+
     return 0;
 }
