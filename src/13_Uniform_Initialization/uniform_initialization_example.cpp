@@ -6,6 +6,7 @@ public:
 };
 
 int main() {
+    // *** Narrowing 변환이란 데이터 손실이 있는 변환을 의미한다! ***
     A a(3.5);   // 암시적 변환 Narrow-conversion 가능! 
     // A b{3.5};   // 암시적 변환 Narrow-conversion 불가능!
 
