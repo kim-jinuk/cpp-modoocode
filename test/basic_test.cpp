@@ -66,7 +66,6 @@ std::future<std::invoke_result_t<F, Args...>> ThreadPool::EnqueueJob(F&& f, Args
     using return_type = std::invoke_result_t<F, Args...>;
     auto job = std::make_shared<std::packaged_task<return_type()>>(std::bind(std::forward<F>(f), std::forward<Args>(args)...));
     std::future<return_type> job_result_future = job->get_future();
-    
     {
         if (stop_all) throw std::runtime_error("ThreadPool 사용 중지됨");
         std::lock_guard<std::mutex> lock(m_job_q_);
