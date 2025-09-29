@@ -3,8 +3,8 @@
 
 template <typename T>
 void show_value(T t) {
-    if constexpr (std::is_pointer_v<T>) {
-        std::cout << "포인터이다 : " << *t << std::endl;
+    if (std::is_pointer<T>::value) {
+        //std::cout << "포인터이다 : " << *t << std::endl;
     } else {
         std::cout << "포인터가 아니다 : " << t << std::endl;
     }
