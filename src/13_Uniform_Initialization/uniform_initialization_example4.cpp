@@ -1,15 +1,15 @@
 #include <iostream>
-#include <vector>
 #include <map>
 #include <string>
+#include <vector>
 
 template <typename T>
 void print_vec(const std::vector<T>& vec) {
     std::cout << "[";
-    for (const auto& v : vec) {
-        std::cout << v << " ";
+    for (const auto& e : vec) {
+        std::cout << e << " ";
     }
-    std::cout << "]";
+    std::cout << "]" << std::endl;
 }
 
 template <typename K, typename V>
@@ -20,12 +20,14 @@ void print_map(const std::map<K, V>& m) {
 }
 
 int main() {
-    std::vector<int> vec = {1, 2, 3, 4, 5};
-    print_vec(vec);
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    print_vec(v);
 
-    std::cout << "-----------------------" << std::endl;
+    std::cout << "-------------------------" << std::endl;
 
-    std::map<std::string, int> m = {{"abc", 1}, {"hi", 3}, {"hello", 5}, {"c++", 2}, {"java", 6}};
+    std::map<std::string, int> m = {
+        {"abc", 1}, {"hi", 3}, {"hello", 5}, {"c++", 2}, {"java", 6}
+    };
     print_map(m);
 
     return 0;
