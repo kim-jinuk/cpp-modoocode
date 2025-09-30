@@ -1,8 +1,7 @@
 #include <iostream>
-#include <utility>
 
 template <typename T>
-decltype(std::declval<T>().f()) call_f_and_return(T& t) {
+decltype(T().f()) call_f_and_return(T& t) {
     return t.f();
 }
 
@@ -18,10 +17,9 @@ struct B {
 int main() {
     A a;
     B b(1);
-    // B c = std::declval<B>();    // Bad
 
-    call_f_and_return(a);   // ok
-    call_f_and_return(b);   // ok
+    call_f_and_return(a);       // OK
+    //call_f_and_return(b);     // BAD
 
     return 0;
 }
