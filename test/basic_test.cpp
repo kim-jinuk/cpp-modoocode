@@ -1,27 +1,19 @@
 #include <iostream>
+#include <type_traits>
 
-template <typename T>
-struct is_void {
-    static constexpr bool value = false;
+class A {
+public:
+    int n;
+
+    A(int n) : n(n) {}
 };
-
-template <>
-struct is_void<void> {
-    static constexpr bool value = true;
-};
-
-template <typename T>
-void tell_type() {
-    if (is_void<T>::value) {
-        std::cout << "T는 void! \n";
-    } else {
-        std::cout << "T는 void가 아니다! \n";
-    }
-}
 
 int main() {
-    tell_type<int>();
-    tell_type<void>();
+    int A::*p_n = &A::n;
+
+    A a(3);
+    std::cout << "a.n : " << a.n << std::endl;
+    std::cout << "a.*p_n : " << a.*p_n << std::endl;
 
     return 0;
 }
