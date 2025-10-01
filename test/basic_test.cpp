@@ -1,20 +1,27 @@
 #include <iostream>
-#include <type_traits>
-
-class A {};
 
 template <typename T>
-void only_integer(const T& t) {
-    static_assert(std::is_integral<T>::value);
-    std::cout << "T is an integral \n";
+struct is_void {
+    static constexpr bool value = false;
+};
+
+template <>
+struct is_void<void> {
+    static constexpr bool value = true;
+};
+
+template <typename T>
+void tell_type() {
+    if (is_void<T>::value) {
+        std::cout << "T는 void! \n";
+    } else {
+        std::cout << "T는 void가 아니다! \n";
+    }
 }
 
 int main() {
-    int n = 3;
-    only_integer(n);
-
-    A a;
-    //only_integer(a);      // bad
+    tell_type<int>();
+    tell_type<void>();
 
     return 0;
 }

@@ -4,9 +4,9 @@
 template <typename T>
 void tell_type() {
     if (std::is_void<T>::value) {
-        std::cout << "T는 void!" << std::endl;
+        std::cout << "T는 void! \n";
     } else {
-        std::cout << "T는 void가 아니다!" << std::endl;
+        std::cout << "T는 void가 아니다! \n";
     }
 }
 
