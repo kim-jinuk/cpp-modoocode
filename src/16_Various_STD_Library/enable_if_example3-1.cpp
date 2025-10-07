@@ -10,8 +10,11 @@ struct A {
     int func() const { return 1; }
 };
 
+struct B {};
+
 int main() {
     test(A{});
+    //test(B{});  // error!
 
     return 0;
 }
