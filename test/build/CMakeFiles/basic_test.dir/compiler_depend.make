@@ -180,7 +180,9 @@ CMakeFiles/basic_test.dir/basic_test.cpp.o: ../basic_test.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/iterator \
+  /usr/include/c++/11/bits/stream_iterator.h
 
 
 /usr/include/c++/11/bits/istream.tcc:
@@ -255,6 +257,8 @@ CMakeFiles/basic_test.dir/basic_test.cpp.o: ../basic_test.cpp \
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
+/usr/include/c++/11/bits/stream_iterator.h:
+
 /usr/include/ctype.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
@@ -328,6 +332,8 @@ CMakeFiles/basic_test.dir/basic_test.cpp.o: ../basic_test.cpp \
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+/usr/include/c++/11/iterator:
 
 /usr/include/c++/11/ostream:
 
