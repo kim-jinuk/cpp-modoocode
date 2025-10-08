@@ -30,10 +30,10 @@ int main() {
     </div>
  )";
     
-    std::regex re(R"r((sk-circle(\d) sk-circle))r");
+    std::regex re(R"r(sk-circle(\d))r");
     std::smatch match;
 
-    std::string modified_html = std::regex_replace(html, re, "$2-sk-circle");
+    std::string modified_html = std::regex_replace(html, re, "$1-sk-circle");
     std::cout << modified_html;
 
     // 치환된 문자열 객체 modified_html 생성 없이, 바로 치환된 문자열 출력하기 (std::regex_replace 오버로딩)

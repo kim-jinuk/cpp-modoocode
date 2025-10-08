@@ -1,4 +1,4 @@
-// 원하는 패턴을 치환하기 (std::regex_replace 사용)
+// 중첩된 캡쳐 그룹 (std::regex_replace 사용)
 #include <iostream>
 #include <regex>
 
@@ -35,9 +35,6 @@ int main() {
 
     std::string modified_html = std::regex_replace(html, re, "$2-sk-circle");
     std::cout << modified_html;
-
-    // 치환된 문자열 객체 modified_html 생성 없이, 바로 치환된 문자열 출력하기 (std::regex_replace 오버로딩)
-    // std::regex_replace(std::ostreambuf_iterator<char>(std::cout), html.begin(), html.end(), re, "$1-sk-circle");
 
     return 0;
 }

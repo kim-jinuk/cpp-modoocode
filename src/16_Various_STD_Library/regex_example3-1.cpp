@@ -1,4 +1,4 @@
-// 원하는 패턴을 검색하기
+// 원하는 패턴을 검색하기 (std::regex_search 사용)
 #include <iostream>
 #include <regex>
 
@@ -29,7 +29,7 @@ int main() {
         <div class="sk-circle7 sk-circle">sxz</div>
     </div>
  )";
-
+    
     std::regex re(R"(<div class="sk[\w -]*">\w*</div>)");
     std::smatch match;
 

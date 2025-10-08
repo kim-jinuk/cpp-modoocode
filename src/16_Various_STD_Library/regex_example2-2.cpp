@@ -1,4 +1,4 @@
-// 휴대폰 번호가 유효할 경우 중간 자리만 따로 추출하기
+// 휴대폰 번호가 유효할 경우 중간 자리만 따로 추출하기 (std::regex_match 사용)
 #include <iostream>
 #include <regex>
 #include <vector>

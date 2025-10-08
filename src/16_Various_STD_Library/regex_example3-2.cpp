@@ -1,4 +1,4 @@
-// 원하는 패턴을 치환하기 (std::regex_replace 사용)
+// 원하는 패턴을 검색하기 (std::regex_iterator 사용)
 #include <iostream>
 #include <regex>
 
@@ -30,14 +30,16 @@ int main() {
     </div>
  )";
     
-    std::regex re(R"r((sk-circle(\d) sk-circle))r");
+    std::regex re(R"(<div class="sk[\w -]*">\w*</div>)");
     std::smatch match;
 
-    std::string modified_html = std::regex_replace(html, re, "$2-sk-circle");
-    std::cout << modified_html;
+    auto start = std::sregex_iterator(html.begin(), html.end(), re);
+    auto end = std::sregex_iterator();
 
-    // 치환된 문자열 객체 modified_html 생성 없이, 바로 치환된 문자열 출력하기 (std::regex_replace 오버로딩)
-    // std::regex_replace(std::ostreambuf_iterator<char>(std::cout), html.begin(), html.end(), re, "$1-sk-circle");
+    while (start != end) {
+        std::cout << start->str() << '\n';
+        ++start;
+    }
 
     return 0;
 }
