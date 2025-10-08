@@ -15,9 +15,14 @@ struct B {
     char func() const { return 'a'; }
 };
 
+struct C {
+    A func() const { return A{}; }
+};
+
 int main() {
     test(A{});
     test(B{});
+    // test(C{});  // error
 
     return 0;
 }
