@@ -1,3 +1,4 @@
+// 주어진 문자열이 특정 패턴과 일치하는지 확인하기
 #include <iostream>
 #include <regex>
 #include <vector>
