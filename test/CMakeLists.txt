@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.17)
 project(basic_test)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(basic_test basic_test.cpp)
 find_package(Threads REQUIRED)
