@@ -1,12 +1,24 @@
+// variant가 아무 것도 들고 있지 않은 상태 (std::monostate 타입 사용)
 #include <iostream>
-#include <filesystem>
+#include <variant>
+
+class A {
+public:
+    A(int n) {}
+};
+
+class B {
+public:
+    B(int n) {}
+};
+
+class C {};
 
 int main() {
-    std::filesystem::path p("./some_file");
-
-    std::cout << "Does " << p << " exist? [" << std::boolalpha << std::filesystem::exists(p) << "]\n";
-    std::cout << "Is " << p << " file? [" << std::boolalpha << std::filesystem::is_regular_file(p) << "]\n";
-    std::cout << "Is " << p << " directory? [" << std::boolalpha << std::filesystem::is_directory(p) << "]\n";
+    // std::variant<A, B> v1;   // 해당 variant 객체 v에 값을 주지 않을 때, 첫 번째 타입인 A의 디폴트 생성자가 없기 때문에 에러가 난다!
+    // std::variant<A, C> v2;   // std::variant<A, B> 에서 에러가 나는 것과 같은 이유로 에러가 남!
+    std::variant<C, A> v3;       // 그러나, 첫 번 째 타입이 디폴트 생성자가 있으면 괜찮음.
+    std::variant<std::monostate, A, B> v4;       // 이를 고려하지 않으려면 std::monostate를 사용한다.
 
     return 0;
 }
