@@ -5,12 +5,12 @@
 namespace fs = std::filesystem;
 
 int main() {
-    fs::directory_iterator itr(fs::current_path() / "build");       // operator/ 오버로딩 되어 있음
-    while (itr != fs::end(itr)) {
-        const fs::directory_entry& entry = *itr;
-        std::cout << entry.path() << '\n';
-        ++itr;
-    }
+    // fs::directory_iterator itr(fs::current_path() / "build");       // operator/ 오버로딩 되어 있음
+    // while (itr != fs::end(itr)) {
+    //     const fs::directory_entry& entry = *itr;
+    //     std::cout << entry.path() << '\n';
+    //     ++itr;
+    // }
 
     return 0;
 }
